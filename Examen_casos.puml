@@ -1,0 +1,45 @@
+@startuml
+left to right direction
+
+actor Aspirante
+actor Reclutador
+actor Sistema
+
+rectangle "Sistema de reclutamiento y control de aspirantes" {
+
+    usecase "Registro" as UC1
+    usecase "Datos personales" as UC2
+    usecase "Estudios" as UC3
+    usecase "CV" as UC4
+
+    usecase "Postulación" as UC5
+    usecase "Ofertas de empleo" as UC6
+
+    usecase "Evaluación de candidatos" as UC7
+    usecase "Agendar entrevistas" as UC8
+    usecase "Calificaciones" as UC9
+
+    usecase "API" as UC10
+    usecase "Notificación\nautomática" as UC11
+}
+
+Aspirante --> UC1
+Aspirante --> UC5
+
+Reclutador --> UC7
+
+Sistema --> UC10
+
+UC1 ..> UC2 : <<include>>
+UC1 ..> UC3 : <<include>>
+UC1 ..> UC4 : <<include>>
+
+UC5 ..> UC6 : <<include>>
+
+UC7 ..> UC8 : <<include>>
+UC7 ..> UC9 : <<include>>
+UC7 ..> UC10 : <<include>>
+
+UC10 ..> UC11 : <<include>>
+
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+
+actor Aspirante
+
+participant Registro
+participant Datos
+participant Ofertas
+participant Postulacion
+
+Aspirante -> Registro : validar
+Registro -> Datos : datos personales
+
+Datos -> Ofertas : estudios
+Ofertas -> Postulacion : ofertas
+
+Datos -> Ofertas : CV
+Ofertas -> Postulacion : postularse
+
+Postulacion --> Ofertas : elegible
+Postulacion --> Ofertas : guardar datos
+
+Ofertas --> Aspirante : mostrar datos
+
+@enduml
